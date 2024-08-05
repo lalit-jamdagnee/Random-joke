@@ -1,0 +1,185 @@
+/* || FONTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* || RESETS */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+/* || VARIABLES */
+
+:root{
+    
+    /* FONT */
+    --FF : 'Nunito', sans-serif;
+    --FS : clamp(1.5rem, 2vw, 2rem);
+    --FS-SMALL : clamp(1rem, 2vw, 1.4rem);
+
+    /* COLORS */
+    --HEADER-BGCOLOR: whitesmoke;
+    --FONT-COLOR: #fff;
+    --FONT-COLOR2: #000;
+    --BG-COLOR: #002e4e;
+    --BORDER-COLOR: #fff;
+    --SHADOW-COLOR: #000;
+    --HOVER-COLOR: #0092bf;
+    --HOVER-SHADOW:0.3px 0.6px 1px var(--SHADOW-COLOR),
+    0.3px 0.8px 5px var(--HOVER-COLOR);
+
+    /* BACKGROUND */
+    --BACKGROUND : url('images/background.jpg');
+    --BACKGROUND2 : linear-gradient(rgb(0, 0, 0, 0.5), rgb(0,0,0,0.5)), url('images/background2.jpg');
+
+    /* BORDER */
+    --BORDER : 1px solid var(--BORDER-COLOR);
+    --BORDER-PADDING: 10px 10px;
+    --BORDER-RADIUS: 15px;
+    --SHADOW : 0.3px 0.6px 1px var(--SHADOW-COLOR),
+            0.3px 0.8px 5px var(--SHADOW-COLOR);
+
+    /* PADDING */
+    --HEADER-PADDING : 0.25rem 0.5rem;
+    --PADDING : 1rem;
+}
+
+.darkmode{
+    /* COLORS */
+    --HEADER-BGCOLOR: #000;
+    --FONT-COLOR2: whitesmoke;
+    --BORDER-COLOR: whitesmoke;
+
+    /* BACKGROUND */
+    --BACKGROUND : linear-gradient(rgb(0, 0, 0, 0.5), rgb(0,0,0,0.5)), url('images/background.jpg');
+    --BACKGROUND2 : linear-gradient(rgb(0, 0, 0, 0.8), rgb(0,0,0,0.8)), url('images/background2.jpg');
+
+    /* BORDER */
+    --BORDER : 1px solid var(--BORDER-COLOR);
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    font-family: var(--FF);
+    color: var(--FONT-COLOR);
+}
+/* || HEADER */
+
+.header{
+    width: 100%;
+    height: 60px;
+    padding: var(--HEADER-PADDING);
+    background-color: var(--HEADER-BGCOLOR);
+}
+
+.header__nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav__logo, .nav__mode{
+    display:flex;
+    cursor: pointer;
+}
+.logo_light, .light_mode{
+    display:none;
+}
+
+.darkmode .logo_light, .darkmode .light_mode{
+    display: flex;
+}
+.darkmode .logo_dark, .darkmode .dark_mode{
+    display: none;
+}
+
+/* || MAIN */
+
+main{
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--BACKGROUND);
+    background-size: cover;
+}
+
+.main{
+    width: max(60%, 700px);
+    height: 80%;
+    padding: var(--PADDING);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10%;
+    justify-content: flex-start;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--SHADOW);
+}
+
+.main__heading h2{
+    font-size: var(--FS);
+    text-transform: uppercase;
+    border: var(--BORDER);
+    border-radius: var(--BORDER-RADIUS);
+    border-color: transparent;
+    padding: var(--BORDER-PADDING);
+    background-color: var(--BG-COLOR);
+    box-shadow: var(--SHADOW);
+}
+
+.main__content{
+    width: 80%;
+    height: 60%;
+    background: var(--BACKGROUND2);
+    background-size: cover;
+    box-shadow: var(--SHADOW);
+    border: var(--BORDER);
+    border-radius: var(--BORDER-RADIUS);
+    padding: var(--PADDING);
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+.main__content p{
+    width: 80%;
+    height: 60%;
+    color: var(--FONT-COLOR2);
+    border-radius: var(--BORDER-RADIUS);
+    background-color: var(--HEADER-BGCOLOR);
+    text-align: center;
+    font-family: cursive;
+    font-size: var(--FS-SMALL);
+    padding: var(--PADDING);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.main__button button{
+    text-transform: uppercase;
+    font-size: var(--FS-SMALL);
+    color: var(--FONT-COLOR);
+    padding: var(--BORDER-PADDING);
+    background-color: var(--BG-COLOR);
+    border-radius: var(--BORDER-RADIUS);
+    border-color: transparent;
+    box-shadow: var(--SHADOW);
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+            background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+            box-shadow 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+}
+button:hover{
+    background-color: var(--HOVER-COLOR);
+    box-shadow: var(--HOVER-SHADOW);
+    transform: scale(1.1);
+}
